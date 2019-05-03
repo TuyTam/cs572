@@ -8,7 +8,7 @@ const readTXTFile = (filepath) =>{
 
 process.on('message',(filepath)=>{
     console.log('Checking your system...');
-    const result = readTXTFile(filepath);
+    fs.readFile(filepath,'utf8',function (err,data) {process.send(data);});
     //process.send('Done reading file ' + filepath);
-    process.send(result);
+
 })
