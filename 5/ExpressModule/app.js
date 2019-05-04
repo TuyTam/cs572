@@ -13,7 +13,7 @@ app.set('strict routing', true);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/', router);
+app.get('/allusers', router);
 
 app.listen(port,()=>{
     console.log('Express server is listening port: ', port);
