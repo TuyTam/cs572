@@ -34,4 +34,6 @@ Questions:\
 20. db.Restaurants.find(\{\},\{name:1, cuisine:1, district:1\}).sort(\{cuisine:1, district:-1\})\
 21. db.Restaurants.find(\{"address.coord":\{$type:["double"]\}\},\{name:1, cuisine:1, district:1\}).sort(\{cuisine:1, district:-1\})\
 22. db.Restaurants.find(\{name:\{$regex:"^Mad"\}\},\{name:1, cuisine:1, district:1\}).sort(\{cuisine:1, district:-1\})\
+db.Restaurants.createIndex({location: '2d'})
+db.collection.find({location: { $near: [currentLong, currentLat]}}).limit(10)
 }

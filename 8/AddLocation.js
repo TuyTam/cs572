@@ -12,26 +12,31 @@ let db = null;
 let currentLong = -91.9665342;
 let currentLat = 41.017654;
 
+app.use(express.json());
+
 client.connect(function(err){
     db = client.db('homework08');
-    
-    
     console.dir("Done");
 });
 app.post("/restaurants", (req, res, next) => {
     const collection = db.collection('Restaurants'); 
+    console.log("Done creating" + req.body);
     const newLoc = {
         "name": req.body.name,
         "location": req.body.location
     }
-    collection.insert(newLoc);
-
+    collection.insert(newLoc, (err,doc)=>{
+        res.send(doc);
+        res.end();
+    });
+    console.log("Done creating");
+    //next();
 })
 
-app.get("restaurants/:name", (req,res,next) => {
+app.get("/restaurants", (req,res,next) => {
     const collection = db.collection('Restaurants');
     if(typeof collection !== undefined){
-        collection.find({name: req.params.name}).toArray(function(err,doc){
+        collection.find({location:{$near:[currentLong, currentLat]}}).limit(1).toArray(function(err,doc){
             if(err){
                 console.log(err);
             }
