@@ -1,0 +1,38 @@
+{
+	"_id" : ObjectId("5cd332d2fc9a85dc6a275566"),
+	"address" : {
+		"building" : "2300",
+		"coord" : [
+			-73.8786113,
+			40.8502883
+		],
+		"street" : "Southern Boulevard",
+		"zipcode" : "10460"
+	},
+	"district" : "Bronx",
+	"cuisine" : "American ",
+	"grades" : [
+		{
+			"date" : ISODate("2014-05-21T00:00:00Z"),
+			"grade" : "A",
+			"score" : 5
+		},
+		{
+			"date" : ISODate("2013-05-28T00:00:00Z"),
+			"grade" : "A",
+			"score" : 3
+		},
+		{
+			"date" : ISODate("2012-06-18T00:00:00Z"),
+			"grade" : "A",
+			"score" : 4
+		},
+		{
+			"date" : ISODate("2011-06-07T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		}
+	],
+	"name" : "African Market (Baboon Cafe)",
+	"restaurant_id" : "40368026"
+}
